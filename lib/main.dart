@@ -1,3 +1,5 @@
+import 'package:app_thuc_pham/constant.dart';
+import 'package:app_thuc_pham/views/login/login_page.dart';
 import 'package:app_thuc_pham/views/welcome/welcome_page.dart';
 import 'package:app_thuc_pham/widgets/introduction_page.dart';
 import 'package:flutter/material.dart';
@@ -15,9 +17,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'App-Thuc-Pham',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.grey,
       ),
-      home: const WelcomePage(),
+      home: const LoginPage(),
     );
   }
 }
