@@ -101,3 +101,27 @@ Widget input({controller, icon, text}) => TextFormField(
         return null;
       },
     );
+
+Widget button({String text}) => Container(
+      decoration: const BoxDecoration(
+          color: buttonColor,
+          borderRadius: BorderRadius.all(Radius.circular(30))),
+      height: 50,
+      width: 180,
+      child: Center(
+          child: Text(text,
+              style: const TextStyle(
+                fontSize: 20,
+                color: textColor,
+              ))),
+    );
+Widget textButton({String text, Function press}) => TextButton(
+      onPressed: press,
+      child: Text(
+        text,
+        style: const TextStyle(
+          fontSize: 20,
+          color: textColor,
+        ),
+      ),
+    );

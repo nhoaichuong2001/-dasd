@@ -1,4 +1,5 @@
-import 'package:app_thuc_pham/widgets.dart';
+import 'package:app_thuc_pham/views/welcome/welcome_page.dart';
+import 'package:app_thuc_pham/widgets/introduction_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,18 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Scaffold(
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            Center(
-              child: email(controller),
-            ),
-            password(controller: controller),
-          ],
-        ),
-      ),
+      home: const WelcomePage(),
     );
   }
 }
