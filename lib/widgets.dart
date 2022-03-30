@@ -20,7 +20,7 @@ Widget email(controller) => TextFormField(
         ),
         focusColor: textColor,
         errorStyle: TextStyle(fontSize: 16),
-        labelText: "Thư điện thử",
+        labelText: "Thư điện tử",
         labelStyle: TextStyle(
           fontSize: 22,
           color: textColor,
@@ -36,7 +36,7 @@ Widget email(controller) => TextFormField(
       },
     );
 
-Widget password({controller, function}) => TextFormField(
+Widget password({controller,text, function}) => TextFormField(
       style: const TextStyle(
         fontSize: 22,
         color: textColor,
@@ -60,7 +60,7 @@ Widget password({controller, function}) => TextFormField(
           fontSize: 22,
           color: textColor,
         ),
-        labelText: "Nhập mật khẩu",
+        labelText: text,
       ),
       validator: (value) {
         if (value == null || value.length <= 8) {
@@ -102,18 +102,23 @@ Widget input({controller, icon, text}) => TextFormField(
       },
     );
 
-Widget button({String text}) => Container(
-      decoration: const BoxDecoration(
+Widget button({String text, h, w, icon, radius}) => Container(
+      decoration: BoxDecoration(
           color: buttonColor,
-          borderRadius: BorderRadius.all(Radius.circular(30))),
-      height: 50,
-      width: 180,
+          borderRadius: BorderRadius.all(Radius.circular(radius))),
+      height: h,
+      width: w,
       child: Center(
-          child: Text(text,
-              style: const TextStyle(
-                fontSize: 20,
-                color: textColor,
-              ))),
+        child: (text == null)
+            ? icon
+            : Text(
+                text,
+                style: const TextStyle(
+                  fontSize: 20,
+                  color: textColor,
+                ),
+              ),
+      ),
     );
 Widget textButton({String text, Function press}) => TextButton(
       onPressed: press,

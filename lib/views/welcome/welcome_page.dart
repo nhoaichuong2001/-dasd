@@ -57,6 +57,7 @@ class _WelcomePageState extends State<WelcomePage> {
             textButton(
                 text: "Tiếp tục",
                 press: () {
+                  
                   controller.nextPage(
                       duration: const Duration(seconds: 1),
                       curve: Curves.easeInOut);
