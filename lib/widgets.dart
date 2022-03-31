@@ -102,18 +102,23 @@ Widget input({controller, icon, text}) => TextFormField(
       },
     );
 
-Widget button({String text}) => Container(
-      decoration: const BoxDecoration(
+Widget button({String text, h, w, icon, radius}) => Container(
+      decoration: BoxDecoration(
           color: buttonColor,
-          borderRadius: BorderRadius.all(Radius.circular(30))),
-      height: 50,
-      width: 180,
+          borderRadius: BorderRadius.all(Radius.circular(radius))),
+      height: h,
+      width: w,
       child: Center(
-          child: Text(text,
-              style: const TextStyle(
-                fontSize: 20,
-                color: textColor,
-              ))),
+        child: (text == null)
+            ? icon
+            : Text(
+                text,
+                style: const TextStyle(
+                  fontSize: 20,
+                  color: textColor,
+                ),
+              ),
+      ),
     );
 Widget textButton({String text, Function press}) => TextButton(
       onPressed: press,
@@ -123,5 +128,44 @@ Widget textButton({String text, Function press}) => TextButton(
           fontSize: 20,
           color: textColor,
         ),
+      ),
+    );
+
+Widget iconButton({icon, press}) => IconButton(onPressed: press, icon: icon);
+
+Widget richText({first, second, third, bool strikeThrough, color}) => RichText(
+      text: TextSpan(
+        children: [
+          TextSpan(
+            text: first,
+            style: TextStyle(
+              decoration: (!strikeThrough)
+                  ? TextDecoration.none
+                  : TextDecoration.lineThrough,
+              fontSize: 20,
+              color: color,
+            ),
+          ),
+          TextSpan(
+            text: second,
+            style: TextStyle(
+              decoration: (!strikeThrough)
+                  ? TextDecoration.none
+                  : TextDecoration.lineThrough,
+              fontSize: 20,
+              color: color,
+            ),
+          ),
+          TextSpan(
+            text: third,
+            style: TextStyle(
+              decoration: (!strikeThrough)
+                  ? TextDecoration.none
+                  : TextDecoration.lineThrough,
+              fontSize: 20,
+              color: color,
+            ),
+          ),
+        ],
       ),
     );

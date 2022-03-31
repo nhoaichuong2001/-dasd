@@ -22,8 +22,6 @@ class CarouselDemo extends StatelessWidget {
             autoPlay: true,
             enlargeCenterPage: true,
             viewportFraction: 1.0,
-            aspectRatio: 1.5,
-            initialPage: 0,
           ),
         ),
       ]);
