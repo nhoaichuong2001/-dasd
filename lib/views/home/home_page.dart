@@ -1,4 +1,5 @@
 import 'package:app_thuc_pham/constant.dart';
+import 'package:app_thuc_pham/views/filter/filter_page.dart';
 import 'package:app_thuc_pham/views/home/widgets/body.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +12,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final List _iconTab = List.unmodifiable([
-    {'icon': "assets/images/icons/home.png", 'text': "Tran chủ"},
+    {'icon': "assets/images/icons/home.png", 'text': "Trang chủ"},
     {'icon': "assets/images/icons/order.png", 'text': "Đặt hàng"},
     {'icon': "assets/images/icons/notification.png", 'text': "Thông báo"},
     {'icon': "assets/images/icons/user.png", 'text': "Cá nhân"},
@@ -20,6 +21,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: background,
+      endDrawer: const FilterPage(),
       appBar: AppBar(
         backgroundColor: backgroundAppBar,
         title: Container(
@@ -46,15 +48,20 @@ class _HomePageState extends State<HomePage> {
         ),
         actions: [
           sizeBoxWidth,
-          CircleAvatar(
-            backgroundColor: background,
-            radius: 30.0,
-            child: Image.asset(
-              "assets/images/icons/filter.png",
-              width: 35.0,
-              height: 35.0,
-            ),
-          ),
+          Builder(builder: (context) {
+            return InkWell(
+              onTap: () => Scaffold.of(context).openEndDrawer(),
+              child: CircleAvatar(
+                backgroundColor: background,
+                radius: 30.0,
+                child: Image.asset(
+                  "assets/images/icons/filter.png",
+                  width: 35.0,
+                  height: 35.0,
+                ),
+              ),
+            );
+          }),
           sizeBoxWidth,
           Stack(
             children: [
