@@ -20,7 +20,7 @@ Widget email(controller) => TextFormField(
         ),
         focusColor: textColor,
         errorStyle: TextStyle(fontSize: 16),
-        labelText: "Thư điện thử",
+        labelText: "Thư điện tử",
         labelStyle: TextStyle(
           fontSize: 22,
           color: textColor,
@@ -36,7 +36,7 @@ Widget email(controller) => TextFormField(
       },
     );
 
-Widget password({controller, function}) => TextFormField(
+Widget password({controller,text, function}) => TextFormField(
       style: const TextStyle(
         fontSize: 22,
         color: textColor,
@@ -60,7 +60,7 @@ Widget password({controller, function}) => TextFormField(
           fontSize: 22,
           color: textColor,
         ),
-        labelText: "Nhập mật khẩu",
+        labelText: text,
       ),
       validator: (value) {
         if (value == null || value.length <= 8) {
