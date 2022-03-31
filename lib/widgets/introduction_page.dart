@@ -2,7 +2,7 @@ import 'package:app_thuc_pham/constant.dart';
 import 'package:flutter/material.dart';
 
 class IntroductionPage extends StatefulWidget {
-  IntroductionPage(
+  const IntroductionPage(
       {Key key, this.title, this.subtitle, this.image, this.customClipPath})
       : super(key: key);
   final String title, subtitle, image;

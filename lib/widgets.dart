@@ -36,7 +36,7 @@ Widget email(controller) => TextFormField(
       },
     );
 
-Widget password({controller,text, function}) => TextFormField(
+Widget password({controller, text, function}) => TextFormField(
       style: const TextStyle(
         fontSize: 22,
         color: textColor,
@@ -76,7 +76,6 @@ Widget input({controller, icon, text}) => TextFormField(
         color: textColor,
       ),
       controller: controller,
-      obscureText: true,
       keyboardType: TextInputType.emailAddress,
       decoration: InputDecoration(
         prefixIcon: icon,
@@ -95,8 +94,8 @@ Widget input({controller, icon, text}) => TextFormField(
         labelText: text,
       ),
       validator: (value) {
-        if (value == null || value.length <= 8) {
-          return 'Mật khẩu không được trống, và nhiều hơn 8 kí tự';
+        if (value == null) {
+          return 'Không được hợp lệs';
         }
         return null;
       },
