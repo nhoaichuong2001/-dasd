@@ -52,8 +52,8 @@ class _LatestProductState extends State<LatestProduct> {
                         Container(
                           margin: const EdgeInsets.symmetric(
                               horizontal: margin / 2),
-                          width: 50,
-                          height: 35,
+                          width: 55,
+                          height: 40,
                           color: Colors.red,
                           transform: Matrix4.rotationX(0.6),
                           child: const Center(
