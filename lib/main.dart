@@ -1,23 +1,21 @@
-import 'package:app_thuc_pham/constant.dart';
+import 'package:app_thuc_pham/views/home/home_page.dart';
 import 'package:app_thuc_pham/views/profile/profile_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key key}) : super(key: key);
-
+  MyApp({Key key}) : super(key: key);
+  final controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      
-    
       debugShowCheckedModeBanner: false,
       title: 'App-Thuc-Pham',
       theme: ThemeData(
-        primaryColor: Colors.white,
+        primarySwatch: Colors.grey,
       ),
       home: const Profile(),
     );
