@@ -36,7 +36,7 @@ Widget email(controller) => TextFormField(
       },
     );
 
-Widget password({controller,text, function}) => TextFormField(
+Widget password({controller, text, function}) => TextFormField(
       style: const TextStyle(
         fontSize: 22,
         color: textColor,
@@ -76,7 +76,6 @@ Widget input({controller, icon, text}) => TextFormField(
         color: textColor,
       ),
       controller: controller,
-      obscureText: true,
       keyboardType: TextInputType.emailAddress,
       decoration: InputDecoration(
         prefixIcon: icon,
@@ -95,26 +94,27 @@ Widget input({controller, icon, text}) => TextFormField(
         labelText: text,
       ),
       validator: (value) {
-        if (value == null || value.length <= 8) {
-          return 'Mật khẩu không được trống, và nhiều hơn 8 kí tự';
+        if (value == null) {
+          return 'Không được hợp lệs';
         }
         return null;
       },
     );
 
-Widget button({String text, h, w, icon, radius}) => Container(
+Widget button({String text, double h, double w, icon, double radius}) =>
+    Container(
       decoration: BoxDecoration(
           color: buttonColor,
-          borderRadius: BorderRadius.all(Radius.circular(radius))),
-      height: h,
-      width: w,
+          borderRadius: BorderRadius.all(Radius.circular(radius.toDouble()))),
+      height: h.toDouble(),
+      width: w.toDouble(),
       child: Center(
         child: (text == null)
             ? icon
             : Text(
                 text,
                 style: const TextStyle(
-                  fontSize: 20,
+                  fontSize: 22.0,
                   color: textColor,
                 ),
               ),
@@ -128,5 +128,80 @@ Widget textButton({String text, Function press, Row child}) => TextButton(
           fontSize: 20,
           color: textColor,
         ),
+      ),
+    );
+
+Widget iconButton({icon, press}) => IconButton(onPressed: press, icon: icon);
+
+Widget richText({first, second, third, bool strikeThrough, color, size}) =>
+    RichText(
+      text: TextSpan(
+        children: [
+          TextSpan(
+            text: first,
+            style: TextStyle(
+              decoration: (!strikeThrough)
+                  ? TextDecoration.none
+                  : TextDecoration.lineThrough,
+              fontSize: size,
+              color: color,
+            ),
+          ),
+          TextSpan(
+            text: second,
+            style: TextStyle(
+              decoration: (!strikeThrough)
+                  ? TextDecoration.none
+                  : TextDecoration.lineThrough,
+              fontSize: size,
+              color: color,
+            ),
+          ),
+          TextSpan(
+            text: third,
+            style: TextStyle(
+              decoration: (!strikeThrough)
+                  ? TextDecoration.none
+                  : TextDecoration.lineThrough,
+              fontSize: size,
+              color: color,
+            ),
+          ),
+        ],
+      ),
+    );
+
+Widget buildText({text, size, color, weight}) => Text(
+      text,
+      style: TextStyle(
+        fontSize: size,
+        color: color,
+        fontWeight: weight,
+      ),
+    );
+
+Widget counter({value, decrement, increment}) => Card(
+      elevation: 5,
+      child: Row(
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          sizeBoxWidth,
+          sizeBoxWidth,
+          InkWell(
+            onTap: decrement,
+            child: buildText(text: "-", color: textColor, size: 22.0),
+          ),
+          sizeBoxWidth,
+          sizeBoxWidth,
+          buildText(text: value, color: textColor, size: 22.0),
+          sizeBoxWidth,
+          sizeBoxWidth,
+          InkWell(
+            onTap: increment,
+            child: buildText(text: "+", color: textColor, size: 22.0),
+          ),
+          sizeBoxWidth,
+          sizeBoxWidth,
+        ],
       ),
     );
