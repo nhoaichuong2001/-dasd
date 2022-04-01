@@ -1,25 +1,25 @@
 import 'package:app_thuc_pham/constant.dart';
-import 'package:app_thuc_pham/views/login/login_page.dart';
-import 'package:app_thuc_pham/views/welcome/welcome_page.dart';
-import 'package:app_thuc_pham/widgets/introduction_page.dart';
+import 'package:app_thuc_pham/views/profile/profile_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({Key key}) : super(key: key);
-  final controller = TextEditingController();
+  const MyApp({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      
+    
       debugShowCheckedModeBanner: false,
       title: 'App-Thuc-Pham',
       theme: ThemeData(
-        primarySwatch: Colors.grey,
+        primaryColor: Colors.white,
       ),
-      home: const LoginPage(),
+      home: const Profile(),
     );
   }
 }

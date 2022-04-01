@@ -120,7 +120,7 @@ class _LoginPageState extends State<LoginPage> {
                           child: Row(
                             children: [
                               Image.asset(
-                                "assets/images/icon/icon_google.png",
+                                "assets/images/icons/icon_google.png",
                                 width: 70,
                                 height: 40,
                               ),
