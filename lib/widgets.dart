@@ -101,19 +101,20 @@ Widget input({controller, icon, text}) => TextFormField(
       },
     );
 
-Widget button({String text, h, w, icon, radius}) => Container(
+Widget button({String text, double h, double w, icon, double radius}) =>
+    Container(
       decoration: BoxDecoration(
           color: buttonColor,
-          borderRadius: BorderRadius.all(Radius.circular(radius))),
-      height: h,
-      width: w,
+          borderRadius: BorderRadius.all(Radius.circular(radius.toDouble()))),
+      height: h.toDouble(),
+      width: w.toDouble(),
       child: Center(
         child: (text == null)
             ? icon
             : Text(
                 text,
                 style: const TextStyle(
-                  fontSize: 20,
+                  fontSize: 22.0,
                   color: textColor,
                 ),
               ),
@@ -132,7 +133,8 @@ Widget textButton({String text, Function press}) => TextButton(
 
 Widget iconButton({icon, press}) => IconButton(onPressed: press, icon: icon);
 
-Widget richText({first, second, third, bool strikeThrough, color}) => RichText(
+Widget richText({first, second, third, bool strikeThrough, color, size}) =>
+    RichText(
       text: TextSpan(
         children: [
           TextSpan(
@@ -141,7 +143,7 @@ Widget richText({first, second, third, bool strikeThrough, color}) => RichText(
               decoration: (!strikeThrough)
                   ? TextDecoration.none
                   : TextDecoration.lineThrough,
-              fontSize: 20,
+              fontSize: size,
               color: color,
             ),
           ),
@@ -151,7 +153,7 @@ Widget richText({first, second, third, bool strikeThrough, color}) => RichText(
               decoration: (!strikeThrough)
                   ? TextDecoration.none
                   : TextDecoration.lineThrough,
-              fontSize: 20,
+              fontSize: size,
               color: color,
             ),
           ),
@@ -161,10 +163,45 @@ Widget richText({first, second, third, bool strikeThrough, color}) => RichText(
               decoration: (!strikeThrough)
                   ? TextDecoration.none
                   : TextDecoration.lineThrough,
-              fontSize: 20,
+              fontSize: size,
               color: color,
             ),
           ),
+        ],
+      ),
+    );
+
+Widget buildText({text, size, color, weight}) => Text(
+      text,
+      style: TextStyle(
+        fontSize: size,
+        color: color,
+        fontWeight: weight,
+      ),
+    );
+
+Widget counter({value, decrement, increment}) => Card(
+      elevation: 5,
+      child: Row(
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          sizeBoxWidth,
+          sizeBoxWidth,
+          InkWell(
+            onTap: decrement,
+            child: buildText(text: "-", color: textColor, size: 22.0),
+          ),
+          sizeBoxWidth,
+          sizeBoxWidth,
+          buildText(text: value, color: textColor, size: 22.0),
+          sizeBoxWidth,
+          sizeBoxWidth,
+          InkWell(
+            onTap: increment,
+            child: buildText(text: "+", color: textColor, size: 22.0),
+          ),
+          sizeBoxWidth,
+          sizeBoxWidth,
         ],
       ),
     );
