@@ -1,4 +1,5 @@
 import 'package:app_thuc_pham/constant.dart';
+import 'package:app_thuc_pham/widgets.dart';
 import 'package:flutter/material.dart';
 
 class EditProfilePage extends StatefulWidget {
@@ -22,7 +23,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        foregroundColor: Colors.black,
+          foregroundColor: Colors.black,
           backgroundColor: backgroundAppBar,
           title: const Text(
             "Chỉnh sửa thông tin",
@@ -30,7 +31,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
           )),
       body: Padding(
         padding: const EdgeInsets.symmetric(
-            horizontal: padding / 2, vertical: padding * 2),
+            horizontal: padding, vertical: padding * 2),
         child: GestureDetector(
           onTap: () {
             FocusScope.of(context).unfocus();
@@ -39,10 +40,10 @@ class _EditProfilePageState extends State<EditProfilePage> {
             children: [
               Stack(
                 children: [
-                  const CircleAvatar(
+                  CircleAvatar(
                     radius: 80,
-                    backgroundImage:
-                        AssetImage("assets/images/avatar/avata.png"),
+                    child: Image.network(
+                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA2JBX3fU1Am1WMiYokaCNshIYJuB8oeyY5rYAXY5hxUevfz5J94fL20a5aWabegvte68&usqp=CAU'),
                   ),
                   Positioned(
                     right: 10,
@@ -57,12 +58,12 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   )
                 ],
               ),
-              buildTextField(title: "Tên hiển thị :", controller: name),
-              buildTextField(title: "Email :", controller: email),
-              buildTextField(title: "Số điện thoại :", controller: phone),
-              buildTextField(title: "Địa chỉ :", controller: address),
+              input(controller: name, text: "Tên hiển thị"),
+              input(controller: email, text: "Thư điện tử"),
+              input(controller: phone, text: "Số điện thoại"),
+              input(controller: address, text: "Địa chỉ"),
               Padding(
-                padding: const EdgeInsets.only(top: padding / 2),
+                padding: const EdgeInsets.only(top: padding * 2),
                 child: SizedBox(
                   width: 300,
                   height: 40,
