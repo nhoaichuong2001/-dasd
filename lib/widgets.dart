@@ -120,7 +120,7 @@ Widget button({String text, double h, double w, icon, double radius}) =>
               ),
       ),
     );
-Widget textButton({String text, Function press}) => TextButton(
+Widget textButton({String text, Function press, Row child}) => TextButton(
       onPressed: press,
       child: Text(
         text,

@@ -1,5 +1,7 @@
-import 'package:app_thuc_pham/views/details/details_page.dart';
+
 import 'package:app_thuc_pham/views/home/home_page.dart';
+import 'package:app_thuc_pham/views/profile/profile_page.dart';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +19,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.grey,
       ),
-      home: const DetailsPage(),
+
+      home: const Profile(),
+
     );
   }
 }
