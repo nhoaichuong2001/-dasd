@@ -1,4 +1,5 @@
 import 'package:app_thuc_pham/constant.dart';
+import 'package:app_thuc_pham/main.dart';
 import 'package:app_thuc_pham/views/profile/components/edit_profile_page.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +15,7 @@ class PersonalInformationPage extends StatelessWidget {
         backgroundColor: backgroundAppBar,
         title: const Text(
           "Thông tin cá nhân",
-          style: TextStyle(fontSize: 20,color: textColor),
+          style: TextStyle(fontSize: 20, color: textColor),
         ),
         actions: [
           Padding(
@@ -30,15 +31,14 @@ class PersonalInformationPage extends StatelessWidget {
         ],
       ),
       body: Column(children: [
-        const Padding(
-          padding: EdgeInsets.all(padding),
+        Padding(
+          padding: const EdgeInsets.all(padding),
           child: Center(
-            child: SizedBox(
-              height: 115,
-              width: 115,
-              child: CircleAvatar(
-                backgroundImage: AssetImage("assets/images/avatar/avata.png"),
-              ),
+            child: CircleAvatar(
+              backgroundColor: backgroundAppBar,
+              radius: 80,
+              child: Image.network(
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA2JBX3fU1Am1WMiYokaCNshIYJuB8oeyY5rYAXY5hxUevfz5J94fL20a5aWabegvte68&usqp=CAU'),
             ),
           ),
         ),
@@ -49,36 +49,30 @@ class PersonalInformationPage extends StatelessWidget {
             style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700),
           ),
         ),
-        Container(
-            width: 500,
-            height: 350,
-            margin: const EdgeInsets.all(margin),
-            decoration: const BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.all(
-                Radius.circular(padding),
+        Card(
+          margin: const EdgeInsets.all(margin),
+          elevation: 5,
+          child: Column(
+            children: [
+              textInf(
+                title: "Tên hiển thị",
+                text: "Hoài Chương",
               ),
-            ),
-            child: Column(
-              children: [
-                textInf(
-                  title: "Tên hiển thị",
-                  text: "Hoài Chương",
-                ),
-                textInf(
-                  title: "Email :",
-                  text: "Hoaichuongvt@gmail.com",
-                ),
-                textInf(
-                  title: "Số điện thoại :",
-                  text: "0348340873",
-                ),
-                textInf(
-                  title: "Địa chỉ :",
-                  text: "Bà rịa vũng tàu",
-                ),
-              ],
-            )),
+              textInf(
+                title: "Email :",
+                text: "Hoaichuongvt@gmail.com",
+              ),
+              textInf(
+                title: "Số điện thoại :",
+                text: "0348340873",
+              ),
+              textInf(
+                title: "Địa chỉ :",
+                text: "Bà rịa vũng tàu",
+              ),
+            ],
+          ),
+        ),
       ]),
     );
   }
@@ -94,15 +88,14 @@ Widget textInf({String title, String text}) {
           title,
           style: const TextStyle(
             fontSize: 25,
-            
           ),
         ),
         Text(
           text,
-          style: const TextStyle(fontSize: 20,color: textColor),
+          style: const TextStyle(fontSize: 20, color: textColor),
         ),
         Padding(
-          padding: const EdgeInsets.only(top:5),
+          padding: const EdgeInsets.only(top: 5),
           child: Container(
             height: 2,
             color: textColor.withOpacity(0.5),

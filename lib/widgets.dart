@@ -72,7 +72,7 @@ Widget password({controller, text, function}) => TextFormField(
 
 Widget input({controller, icon, text}) => TextFormField(
       style: const TextStyle(
-        fontSize: 20,
+        fontSize: 22,
         color: textColor,
       ),
       controller: controller,

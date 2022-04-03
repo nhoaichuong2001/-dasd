@@ -10,15 +10,13 @@ class Body extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          const Padding(
-            padding: EdgeInsets.all(padding),
+          Padding(
+            padding: const EdgeInsets.all(padding),
             child: Center(
-              child: SizedBox(
-                height: 115,
-                width: 115,
-                child: CircleAvatar(
-                  backgroundImage: AssetImage("assets/images/avatar/avata.png"),
-                ),
+              child: CircleAvatar(
+                radius: 80,
+                child: Image.network(
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA2JBX3fU1Am1WMiYokaCNshIYJuB8oeyY5rYAXY5hxUevfz5J94fL20a5aWabegvte68&usqp=CAU'),
               ),
             ),
           ),
@@ -29,52 +27,46 @@ class Body extends StatelessWidget {
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700),
             ),
           ),
-          Container(
-              width: 500,
-              height: 350,
-              margin: const EdgeInsets.all(margin),
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.all(
-                  Radius.circular(padding),
+          Card(
+            margin: const EdgeInsets.all(margin),
+            elevation: 5.0,
+            child: Column(
+              children: [
+                profileMenu(
+                  text: "Thông tin cá nhân",
+                  icon: "assets/images/icons/user.png",
+                  press: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                const PersonalInformationPage()));
+                  },
                 ),
-              ),
-              child: Column(
-                children: [
-                  profilemenu(
-                    text: "Thông tin cá nhân",
-                    icon: "assets/images/icons/user.png",
-                    press: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  const PersonalInformationPage()));
-                    },
-                  ),
-                  profilemenu(
-                    text: "Đơn hàng",
-                    icon: "assets/images/icons/myorder.png",
-                    press: () {},
-                  ),
-                  profilemenu(
-                    text: "Cài đặt",
-                    icon: "assets/images/icons/setting.png",
-                    press: () {},
-                  ),
-                  profilemenu(
-                    text: "Đăng xuất",
-                    icon: "assets/images/icons/logout.png",
-                    press: () {},
-                  ),
-                ],
-              )),
+                profileMenu(
+                  text: "Đơn hàng",
+                  icon: "assets/images/icons/myorder.png",
+                  press: () {},
+                ),
+                profileMenu(
+                  text: "Cài đặt",
+                  icon: "assets/images/icons/setting.png",
+                  press: () {},
+                ),
+                profileMenu(
+                  text: "Đăng xuất",
+                  icon: "assets/images/icons/logout.png",
+                  press: () {},
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
   }
 
-  Widget profilemenu({String text, String icon, Function press}) => TextButton(
+  Widget profileMenu({String text, String icon, Function press}) => TextButton(
       onPressed: press,
       child: Column(
         children: [
@@ -86,7 +78,7 @@ class Body extends StatelessWidget {
             ),
             title: Text(
               text,
-              style: const TextStyle(fontSize: 20,color: textColor),
+              style: const TextStyle(fontSize: 20, color: textColor),
             ),
             trailing: const Icon(Icons.arrow_forward_ios),
           ),
