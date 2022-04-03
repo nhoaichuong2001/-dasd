@@ -1,7 +1,5 @@
-import 'package:app_thuc_pham/views/home/home_page.dart';
-import 'package:app_thuc_pham/views/profile/my-order/order_page.dart';
-import 'package:app_thuc_pham/views/profile/profile_page.dart';
-
+import 'package:app_thuc_pham/constant.dart';
+import 'package:app_thuc_pham/views/stepper_payment/stepper_payment.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,9 +15,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'App-Thuc-Pham',
       theme: ThemeData(
-        primarySwatch: Colors.grey,
+        primaryColor: textColor,
       ),
-      home: const OrderPage(),
+      home: const StepperPayment(),
     );
   }
 }

@@ -1,5 +1,4 @@
 import 'package:app_thuc_pham/constant.dart';
-import 'package:app_thuc_pham/main.dart';
 import 'package:app_thuc_pham/views/profile/components/edit_profile_page.dart';
 import 'package:flutter/material.dart';
 

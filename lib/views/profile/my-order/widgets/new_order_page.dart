@@ -3,8 +3,13 @@ import 'package:app_thuc_pham/widgets.dart';
 import 'package:flutter/material.dart';
 
 class NewOrderPage extends StatelessWidget {
-  const NewOrderPage({Key key}) : super(key: key);
-
+  NewOrderPage({Key key}) : super(key: key);
+  final List reason = [
+    'Thay đổi địa chỉ giao hàng',
+    'Không đủ kinh phí',
+    'Chọn sản phẩm khác',
+    'Khác'
+  ];
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -63,7 +68,55 @@ class NewOrderPage extends StatelessWidget {
                     color: textColor,
                     size: 20.0,
                   ),
-                  trailing: button(text: "Hủy đơn", h: 80, w: 150, radius: 5),
+                  trailing: InkWell(
+                      onTap: () {
+                        showModalBottomSheet(
+                            shape: const RoundedRectangleBorder(
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(20),
+                                topRight: Radius.circular(20),
+                              ),
+                            ),
+                            context: context,
+                            builder: (context) {
+                              return Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(padding),
+                                    child: buildText(
+                                        text: "Chọn lí do hủy",
+                                        size: 25.0,
+                                        color: Colors.teal,
+                                        weight: FontWeight.bold),
+                                  ),
+                                  Column(
+                                    children: reason
+                                        .map(
+                                          (e) => ListTile(
+                                            leading: const Icon(
+                                              Icons.ac_unit_outlined,
+                                              color: Colors.teal,
+                                              size: 30.0,
+                                            ),
+                                            title: buildText(
+                                                text: e,
+                                                size: 22.0,
+                                                color: textColor),
+                                          ),
+                                        )
+                                        .toList(),
+                                  ),
+                                  button(
+                                      text: "Hủy đơn",
+                                      h: 70,
+                                      w: 200,
+                                      radius: 5),
+                                ],
+                              );
+                            });
+                      },
+                      child: button(text: "Hủy đơn", h: 80, w: 150, radius: 5)),
                 ),
               )
             ],
