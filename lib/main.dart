@@ -1,5 +1,6 @@
 
 import 'package:app_thuc_pham/views/home/home_page.dart';
+import 'package:app_thuc_pham/views/login/login_page.dart';
 import 'package:app_thuc_pham/views/profile/profile_page.dart';
 
 import 'package:flutter/material.dart';
