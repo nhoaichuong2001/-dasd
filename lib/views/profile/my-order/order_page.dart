@@ -37,7 +37,7 @@ class OrderPage extends StatelessWidget {
     );
   }
 
-  Widget body() => const TabBarView(
+  Widget body() => TabBarView(
         children: [
           NewOrderPage(),
           NewOrderPage(),
