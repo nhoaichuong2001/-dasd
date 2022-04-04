@@ -1,11 +1,15 @@
-
 import 'package:app_thuc_pham/views/home/home_page.dart';
 import 'package:app_thuc_pham/views/login/login_page.dart';
+import 'package:app_thuc_pham/views/order/order_page.dart';
+import 'package:app_thuc_pham/views/profile/my-order/details/order_detail_page.dart';
+import 'package:app_thuc_pham/views/profile/my-order/order_page.dart';
 import 'package:app_thuc_pham/views/profile/profile_page.dart';
 
 import 'package:flutter/material.dart';
 
+
 void main() {
+  
   runApp(MyApp());
 }
 
@@ -20,9 +24,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.grey,
       ),
-
-      home: const Profile(),
-
+      home: const OrderHomePage(),
     );
   }
 }
