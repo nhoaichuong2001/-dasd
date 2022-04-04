@@ -41,7 +41,7 @@ class _LoginPageState extends State<LoginPage> {
               Container(
                 width: 500,
                 height:470 ,
-                margin: const EdgeInsets.all(padding),
+                margin: const EdgeInsets.all(margin),
                 decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.all(

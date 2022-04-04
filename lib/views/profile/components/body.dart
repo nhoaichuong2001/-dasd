@@ -1,5 +1,7 @@
 import 'package:app_thuc_pham/constant.dart';
 import 'package:app_thuc_pham/views/profile/components/personal_Information_page.dart';
+import 'package:app_thuc_pham/views/profile/my-order/order_page.dart';
+import 'package:app_thuc_pham/views/profile/setting/setting_page.dart';
 import 'package:flutter/material.dart';
 
 class Body extends StatelessWidget {
@@ -51,7 +53,12 @@ class Body extends StatelessWidget {
                 profileMenu(
                   text: "Cài đặt",
                   icon: "assets/images/icons/setting.png",
-                  press: () {},
+                  press: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const SettingPage()));
+                  },
                 ),
                 profileMenu(
                   text: "Đăng xuất",

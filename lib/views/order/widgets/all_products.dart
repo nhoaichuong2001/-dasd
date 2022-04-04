@@ -2,21 +2,24 @@ import 'package:app_thuc_pham/constant.dart';
 import 'package:app_thuc_pham/widgets.dart';
 import 'package:flutter/material.dart';
 
-class MyProduct extends StatelessWidget {
-  const MyProduct({Key key}) : super(key: key);
+class AllProduct extends StatelessWidget {
+  const AllProduct({
+    Key key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 630,
+      height: 550,
       child: GridView.builder(
           physics: const NeverScrollableScrollPhysics(),
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          gridDelegate:
+              const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             childAspectRatio: 0.7,
           ),
           itemCount: 4,
-          itemBuilder: (context, index) {   
+          itemBuilder: (context, index) {
             return InkWell(
               onTap: () {},
               child: Card(
@@ -29,7 +32,7 @@ class MyProduct extends StatelessWidget {
                     children: [
                       Center(
                         child: SizedBox(
-                          height: 150,
+                          height: 130,
                           child: Image.network(
                             'https://suckhoedoisong.qltns.mediacdn.vn/Images/haiyen/2018/12/10/tao.jpg',
                             fit: BoxFit.cover,
