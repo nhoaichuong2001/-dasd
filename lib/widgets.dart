@@ -73,7 +73,7 @@ Widget password({controller, text, function}) => TextFormField(
 Widget input({controller, icon, text}) => TextFormField(
       style: const TextStyle(
         fontSize: 22,
-        color: textColor,
+        color: Colors.red,
       ),
       controller: controller,
       keyboardType: TextInputType.emailAddress,
@@ -82,16 +82,12 @@ Widget input({controller, icon, text}) => TextFormField(
         suffixStyle: const TextStyle(
           color: textColor,
         ),
-        floatingLabelStyle: const TextStyle(
-          fontSize: 22,
+        errorStyle: const TextStyle(fontSize: 18),
+        hintText: text,
+        hintStyle: const TextStyle(
+          fontSize: 22.0,
           color: textColor,
         ),
-        errorStyle: const TextStyle(fontSize: 16),
-        labelStyle: const TextStyle(
-          fontSize: 22,
-          color: textColor,
-        ),
-        labelText: text,
       ),
       validator: (value) {
         if (value == null) {
@@ -101,10 +97,16 @@ Widget input({controller, icon, text}) => TextFormField(
       },
     );
 
-Widget button({String text, double h, double w, icon, double radius}) =>
+Widget button(
+        {String text,
+        double h,
+        double w,
+        icon,
+        double radius,
+        backgroundColor}) =>
     Container(
       decoration: BoxDecoration(
-          color: buttonColor,
+          color: (backgroundColor == null) ? buttonColor : backgroundColor,
           borderRadius: BorderRadius.all(Radius.circular(radius.toDouble()))),
       height: h.toDouble(),
       width: w.toDouble(),
@@ -120,12 +122,12 @@ Widget button({String text, double h, double w, icon, double radius}) =>
               ),
       ),
     );
-Widget textButton({String text, Function press, Row child}) => TextButton(
+Widget textButton({String text, Function press}) => TextButton(
       onPressed: press,
       child: Text(
         text,
         style: const TextStyle(
-          fontSize: 20,
+          fontSize: 22,
           color: textColor,
         ),
       ),
@@ -140,6 +142,7 @@ Widget richText({first, second, third, bool strikeThrough, color, size}) =>
           TextSpan(
             text: first,
             style: TextStyle(
+              decorationColor: textColor,
               decoration: (!strikeThrough)
                   ? TextDecoration.none
                   : TextDecoration.lineThrough,
@@ -181,7 +184,7 @@ Widget buildText({text, size, color, weight}) => Text(
     );
 
 Widget counter({value, decrement, increment}) => Card(
-      elevation: 5,
+      elevation: 2.0,
       child: Row(
         mainAxisSize: MainAxisSize.max,
         children: [
@@ -189,7 +192,11 @@ Widget counter({value, decrement, increment}) => Card(
           sizeBoxWidth,
           InkWell(
             onTap: decrement,
-            child: buildText(text: "-", color: textColor, size: 22.0),
+            child: const Icon(
+              Icons.remove,
+              size: 22.0,
+              color: textColor,
+            ),
           ),
           sizeBoxWidth,
           sizeBoxWidth,
@@ -198,7 +205,11 @@ Widget counter({value, decrement, increment}) => Card(
           sizeBoxWidth,
           InkWell(
             onTap: increment,
-            child: buildText(text: "+", color: textColor, size: 22.0),
+            child: const Icon(
+              Icons.add,
+              size: 22.0,
+              color: textColor,
+            ),
           ),
           sizeBoxWidth,
           sizeBoxWidth,

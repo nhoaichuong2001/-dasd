@@ -1,17 +1,22 @@
-<<<<<<< HEAD
+
 import 'package:app_thuc_pham/views/home/home_page.dart';
 import 'package:app_thuc_pham/views/login/login_page.dart';
 import 'package:app_thuc_pham/views/order/order_page.dart';
 import 'package:app_thuc_pham/views/profile/my-order/details/order_detail_page.dart';
 import 'package:app_thuc_pham/views/profile/my-order/order_page.dart';
-=======
+
+
 
 import 'package:app_thuc_pham/views/login/login_page.dart';
 
 import 'package:app_thuc_pham/views/profile/my-order/order_page.dart';
 
->>>>>>> 281ed576f386028838855dcf3d27c357d25ac91b
+
 import 'package:app_thuc_pham/views/profile/profile_page.dart';
+
+import 'package:app_thuc_pham/constant.dart';
+import 'package:app_thuc_pham/views/stepper_payment/stepper_payment.dart';
+
 
 import 'package:flutter/material.dart';
 
@@ -30,9 +35,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'App-Thuc-Pham',
       theme: ThemeData(
-        primarySwatch: Colors.grey,
+        primaryColor: textColor,
       ),
-      home: const OrderHomePage(),
+
+      home: const StepperPayment(),
+
     );
   }
 }
